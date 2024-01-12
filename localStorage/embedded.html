@@ -14,7 +14,7 @@
     const storage = localStorage.getItem("date") || [];
     const dateString = new Date().toString();
     storage.push(dateString);
-    localStorage.setItem("date", storage);
+    localStorage.setItem("date", JSON.stringify(storage));
     document.querySelector("#test").innerHTML = `We wrote "${dateString}" to localstorage`;
 
     const dateLocalStorage = localStorage.getItem("date") || "nothing in local storage";
