@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    <div>This page sets a date to localStorage when embedded </div>
     <div id="test"></div>
 </body>
 <script>
@@ -14,6 +15,9 @@
         const dateString = new Date().toString();
         localStorage.setItem("date", dateString);
         document.querySelector("#test").innerHTML = `We wrote "${dateString}" to localstorage`;
+    } else {
+        const dateString = localStorage.getItem("date") || "nothing in local storage";
+        document.querySelector("#test").innerHTML = `localStorage value: "${dateString}"`;
     }
 </script>
 
