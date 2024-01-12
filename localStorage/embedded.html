@@ -11,14 +11,12 @@
     <div id="test"></div>
 </body>
 <script>
-    if (window.frameElement) {
-        const dateString = new Date().toString();
-        localStorage.setItem("date", dateString);
-        document.querySelector("#test").innerHTML = `We wrote "${dateString}" to localstorage`;
-    }
+    const dateString = new Date().toString();
+    localStorage.setItem("date", dateString);
+    document.querySelector("#test").innerHTML = `We wrote "${dateString}" to localstorage`;
 
-    const dateString = localStorage.getItem("date") || "nothing in local storage";
-    document.querySelector("#test").innerHTML = `localStorage value: "${dateString}"`;
+    const dateLocalStorage = localStorage.getItem("date") || "nothing in local storage";
+    document.querySelector("#test").innerHTML = `localStorage value: "${dateLocalStorage}"`;
 </script>
 
 </html>
