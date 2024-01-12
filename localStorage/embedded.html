@@ -11,12 +11,14 @@
     <div id="test"></div>
 </body>
 <script>
+    const storage = localStorage.getItem("date") || [];
     const dateString = new Date().toString();
-    localStorage.setItem("date", dateString);
+    storage.push(dateString);
+    localStorage.setItem("date", storage);
     document.querySelector("#test").innerHTML = `We wrote "${dateString}" to localstorage`;
 
     const dateLocalStorage = localStorage.getItem("date") || "nothing in local storage";
-    document.querySelector("#test").innerHTML = `localStorage value: "${dateLocalStorage}"`;
+    document.querySelector("#test").innerHTML = `localStorage value: "${JSON.stringify(dateLocalStorage)}"`;
 </script>
 
 </html>
