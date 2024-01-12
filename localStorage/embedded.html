@@ -11,8 +11,13 @@
     <div id="test"></div>
 </body>
 <script>
-    const storage = localStorage.getItem("date") || [];
+    const storageString = localStorage.getItem("date");
     const dateString = new Date().toString();
+    
+    let storage = [];
+    if (storageString) {
+        storage = JSON.parse(storageString);
+    }
     storage.push(dateString);
     localStorage.setItem("date", JSON.stringify(storage));
     document.querySelector("#test").innerHTML = `We wrote "${dateString}" to localstorage`;
